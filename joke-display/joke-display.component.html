@@ -1,0 +1,18 @@
+<button (click)="getOneJoke()">Get Joke</button>
+<button (click)="timerStarted = !timerStarted; inTurn(3);" valuetext="Start">
+    <span *ngIf="!timerStarted; else unset">Start showing jokes</span>
+    <ng-template #unset>
+        <span>Stop showing jokes</span>
+    </ng-template>
+</button>
+<!-- <button (click)="removeFirst()">remove first</button> -->
+<button (click)="removeAll()">Remove all jokes from favourites</button>
+<div *ngIf="joke.id">
+    <div>{{ joke.value }}</div>
+    <button (click)="joke.isFavourite = !joke.isFavourite; changeFavourites();">
+        <span *ngIf="!joke.isFavourite; else unset2">Add to favorites</span>
+        <ng-template #unset2>
+            <span>Remove from favourites</span>
+        </ng-template>
+    </button>
+</div>
